@@ -1,0 +1,26 @@
+<div class="main-container">
+    <div class="form-container">
+        <h1>Start a New Game</h1>
+        <form>
+            <mat-form-field class="form-input">
+                <mat-label>Enter Player Name</mat-label>
+                <input matInput [formControl]="createForm">
+            </mat-form-field>
+            <button class="form-button" type="button" (click)="createGame()" [disabled]="!createForm.valid">Create</button>
+        </form>
+    </div>
+    <div class="form-container">
+        <h1>Join a Game</h1>
+        <form [formGroup]="joinForm" (ngSubmit)="joinGame()">
+            <mat-form-field class="form-input">
+                <mat-label>Enter Game Room ID</mat-label>
+                <input matInput formControlName="gameRoomId">
+            </mat-form-field>
+            <mat-form-field class="form-input">
+                <mat-label>Enter Player Name</mat-label>
+                <input matInput formControlName="playerName">
+            </mat-form-field>
+            <button class="form-button" type="submit" [disabled]="!joinForm.valid">Join</button>
+        </form>
+    </div>
+</div>
